@@ -82,13 +82,6 @@ def common_items(list1, list2):
                 common.append(n)
     return common
 
-    # a fun way to solve if the times an item appeared didn't matter:
-    # set1 = set(list2)
-    # set2 = set(list1)
-    # return list(set1 & set2)
-
-
-
 def unique_common_items(list1, list2):
     """Produce the set of *unique* common items in two lists.
 
@@ -110,8 +103,10 @@ def unique_common_items(list1, list2):
         [1, 2]
 
     """
+    set1 = set(list2)
+    set2 = set(list1)
+    return list(set1 & set2)
 
-    return []
 
 
 def sum_zero(list1):

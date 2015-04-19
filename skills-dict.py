@@ -178,8 +178,16 @@ def word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
     """
+    word_frequency_dict = {}
+    word_frequency_list = []
 
-    return []
+    for word in words:
+        word_frequency_dict.setdefault(len(word),[]).append(word)
+
+    for key, value in word_frequency_dict.items():
+        word_frequency_list.append((key, value))
+
+    return word_frequency_list
 
 
 def pirate_talk(phrase):

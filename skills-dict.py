@@ -232,8 +232,38 @@ def pirate_talk(phrase):
         'me swabbie be not a man!'
 
     """
+    phrase = phrase.split()
+    translated_phrase = ""
+    translations_dict = {
+        "sir": "matey",
+        "hotel": "fleabag inn",
+        "student": "swabbie",
+        "boy": "matey",
+        "madam": "proud beauty",
+        "professor": "foul blaggart",
+        "restaurant":  "galley",
+        "your": "yer",
+        "excuse": "arr",
+        "students": "swabbies",
+        "are": "be",
+        "lawyer": "foul blaggart",
+        "the": "th'",
+        "restroom": "head",
+        "my": "me",
+        "hello":  "avast",
+        "is": "be",
+        "man": "matey"
 
-    return ""
+    }
+
+    for word in phrase:
+        translated_word = translations_dict.get(word)
+        if translated_word == None:
+            translated_phrase = translated_phrase + " " + word
+        else:
+            translated_phrase = translated_phrase + " " + translated_word
+
+    return translated_phrase
 
 def adv_word_length_sorted_words(words):
     """Given list of words, return list of ascending [(len, [sorted-words])].

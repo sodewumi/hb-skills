@@ -107,8 +107,6 @@ def unique_common_items(list1, list2):
     set2 = set(list1)
     return list(set1 & set2)
 
-
-
 def sum_zero(list1):
     """Return list of x,y number pair lists from a list where x+y==0
 
@@ -133,22 +131,17 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
-    list1 = list(set(list1))
     paired = []
 
-    return list1
-    # for n in range(len(list1)):
-    #     for i in range(n +1, len(list1)):
-    #         if i == len(list1):
-    #             break
-    #         else:
-    #             if list1[n] + list1[i] == 0:
-    #                 paired.append([list1[n], list1[i]])
-    # print "yo"
-    # return list(paired)
-
-print(sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]))
-
+    # return list1
+    for n in range(len(list1)):
+        for i in range(n +1, len(list1)):
+            if list1[n] + list1[i] == 0:
+                pair_zero = [list1[n], list1[i]]
+                pair_zero.sort()
+                if pair_zero not in paired:
+                    paired.append(pair_zero)
+    return paired
 
 def find_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
@@ -167,7 +160,9 @@ def find_duplicates(words):
 
     """
 
-    return []
+    removed_duplicates = {w for w in words}
+
+    return list(removed_duplicates)
 
 
 def word_length(words):

@@ -75,8 +75,18 @@ def common_items(list1, list2):
         [1, 1, 2, 2]
 
     """
+    common = []
+    for n in list1:
+        for i in list2:
+            if n == i:
+                common.append(n)
+    return common
 
-    return []
+    # a fun way to solve if the times an item appeared didn't matter:
+    # set1 = set(list2)
+    # set2 = set(list1)
+    # return list(set1 & set2)
+
 
 
 def unique_common_items(list1, list2):

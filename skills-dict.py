@@ -259,9 +259,15 @@ def pirate_talk(phrase):
     for word in phrase:
         translated_word = translations_dict.get(word)
         if translated_word == None:
-            translated_phrase = translated_phrase + " " + word
+            if translated_phrase == "":
+                translated_phrase += word
+            else:
+                translated_phrase = translated_phrase + " " + word
         else:
-            translated_phrase = translated_phrase + " " + translated_word
+            if translated_phrase == "":
+                translated_phrase += translated_word
+            else:         
+                translated_phrase = translated_phrase + " " + translated_word
 
     return translated_phrase
 

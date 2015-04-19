@@ -133,19 +133,19 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
+    list1 = list(set(list1))
     paired = []
 
-    for n in range(len(list1)):
-        print list1[n], "yo"
-        for i in range(n +1, len(list1)):
-            if i == len(list1):
-                break
-            else:
-                print list1[i]
-                if list1[n] + list1[i] == 0:
-                    paired.append([list1[n], list1[i]])
-
-    return paired
+    return list1
+    # for n in range(len(list1)):
+    #     for i in range(n +1, len(list1)):
+    #         if i == len(list1):
+    #             break
+    #         else:
+    #             if list1[n] + list1[i] == 0:
+    #                 paired.append([list1[n], list1[i]])
+    # print "yo"
+    # return list(paired)
 
 print(sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]))
 

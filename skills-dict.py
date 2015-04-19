@@ -115,7 +115,6 @@ def sum_zero(list1):
     Given a list of numbers, add up each individual pair of numbers.
     Return a list of each pair of numbers that adds up to 0.
 
-
     For example:
 
         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1]) )
@@ -134,8 +133,21 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
+    paired = []
 
-    return []
+    for n in range(len(list1)):
+        print list1[n], "yo"
+        for i in range(n +1, len(list1)):
+            if i == len(list1):
+                break
+            else:
+                print list1[i]
+                if list1[n] + list1[i] == 0:
+                    paired.append([list1[n], list1[i]])
+
+    return paired
+
+print(sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]))
 
 
 def find_duplicates(words):

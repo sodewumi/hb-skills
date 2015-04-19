@@ -1,7 +1,6 @@
 # To work on the advanced problems, set to True
 ADVANCED = False
 
-
 def count_unique(string1):
     """Count unique words in a string.
 
@@ -48,8 +47,7 @@ def count_unique(string1):
     for word in string1:
         my_dict[word] = my_dict.get(word, 0) + 1
 
-    returm my_dict
-
+    return my_dict
 
 def common_items(list1, list2):
     """Produce the set of common items in two lists.

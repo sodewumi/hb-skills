@@ -280,8 +280,18 @@ def adv_word_length_sorted_words(words):
 
     """
 
-    return []
+    word_frequency_dict = {}
+    word_frequency_list = []
 
+    for word in words:
+        word_frequency_dict.setdefault(len(word),[]).append(word)
+
+
+    for key, value in word_frequency_dict.items():
+        value.sort()
+        word_frequency_list.append((key, value))
+
+    return word_frequency_list
 
 ##############################################################################
 # You can ignore everything after here

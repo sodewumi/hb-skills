@@ -3,7 +3,7 @@ INTERMEDIATE = False
 
 # To work on the advanced problems, set to True
 ADVANCED = False
-
+import collections
 
 def all_odd(number_list):
     """Return a list of only the odd numbers in the input list.
@@ -50,9 +50,8 @@ def print_indeces(my_list):
     2 Volvo
 
     """
-    print "Nothing at all"
-    pass
-
+    for i in range(len(my_list)):
+        print str(i) + " " + my_list[i]
 
 def long_words(word_list):
     """Return all words in input list that are longer than 4 characters.
@@ -65,7 +64,7 @@ def long_words(word_list):
 
     """
 
-    return []
+    return [word for word in word_list if len(word) > 4]
 
 
 def smallest_int(number_list):
@@ -81,7 +80,7 @@ def smallest_int(number_list):
 
     """
 
-    return 100
+    return min(number_list) if number_list != [] else None
 
 
 def largest_int(number_list):
@@ -96,8 +95,14 @@ def largest_int(number_list):
         True
 
     """
+    # can also do the smallest_int way with the max function
+       
+    maxi = None
+    for n in number_list:
+        if n > maxi:
+            maxi = n
+    return maxi
 
-    return 0
 
 
 def halvesies(number_list):
@@ -113,7 +118,7 @@ def halvesies(number_list):
 
     """
 
-    return []
+    return [float(i)/2 for i in number_list]
 
 
 def word_lengths(word_list):
@@ -124,7 +129,7 @@ def word_lengths(word_list):
 
     """
 
-    return []
+    return [len(w) for w in word_list]
 
 
 def sum_numbers(number_list):
@@ -143,7 +148,11 @@ def sum_numbers(number_list):
 
     """
 
-    return 0
+    sum = 0
+    for n in number_list:
+        sum += n
+
+    return sum
 
 
 def mult_numbers(number_list):
@@ -164,7 +173,11 @@ def mult_numbers(number_list):
         1
 
     """
-    return 0
+    mult = 1
+
+    for n in number_list:
+        mult *= n
+    return mult
 
 
 def join_strings(word_list):
@@ -182,7 +195,11 @@ def join_strings(word_list):
         ''
 
     """
-    return ""
+    mashed_str = ""
+
+    for word in word_list:
+        mashed_str += word
+    return mashed_str
 
 
 def average(number_list):
@@ -194,11 +211,11 @@ def average(number_list):
     There is no defined answer if the list given is empty. It's fine if
     this raises an error when given an empty list.
     """
-    return 0
+    return sum(number_list) / float(len(number_list))
 
 
-##############################################################################
-# END OF SKILLS TEST; YOU CAN STOP HERE.
+# ##############################################################################
+# # END OF SKILLS TEST; YOU CAN STOP HERE.
 
 
 def intermediate_join_strings(list_of_words):
@@ -215,10 +232,11 @@ def intermediate_join_strings(list_of_words):
     As above, if the list given is empty, it's fine if this function
     raises an error.
     """
-    return ""
+    return ", ".join([w for w in list_of_words])
 
 
 def adv_find_unique_long_words(my_string):
+
     """Return a list of words that only appeared only once
     within the input string and are at least 6 characters long.
 
@@ -226,8 +244,17 @@ def adv_find_unique_long_words(my_string):
     ['nachos', 'coffee']
 
     """
-    return []
+    rm_punctuation = ""
+    for ltr in my_string:
+        if ltr.isalpha() or ltr == " ":
+            rm_punctuation += ltr
 
+    word_arr = rm_punctuation.split()
+
+    dictionary = collections.Counter(word_arr)
+
+
+    return [w for w in word_arr if len(w) >= 6 and dictionary[w] == 1]
 
 ##############################################################################
 # You can ignore everything after here

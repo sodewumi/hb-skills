@@ -202,8 +202,6 @@
      console.log(msg[i])
    }
 
-   console.log(newMsg)
-
    alert(newMsg);
  }
 
@@ -232,9 +230,11 @@
 <fieldset>
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
-
+<script src="https://code.jquery.com/jquery.js"></script>
 <script>
-  // code here for above problem
+  $(".tricky-to-find").on("click", function () {
+    alert("hey")
+  })
 </script>
 
 <div class="hint">
@@ -261,7 +261,12 @@
 </fieldset>
 
 <script>
-  // put your code here
+var cats = $("#kittenz-rule")
+  function changeImage() {
+    cats.attr('src', "dog.jpg")
+  }
+
+  cats.on("click", changeImage)
 </script>
 
 <div class="hint">
@@ -294,7 +299,11 @@
 </fieldset>
 
 <script>
-  // put your code here
+  var appearPorcupine = function() {
+    $("#cute-porcupine-image").slideDown("slowly");
+  }
+
+  $("#make-a-porcupine").on("click", function () {setTimeout(appearPorcupine, 1000)});
 </script>
 
 <div class="hint">

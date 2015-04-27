@@ -335,7 +335,14 @@ var cats = $("#kittenz-rule")
 </fieldset>
 
 <script>
-  // put your code here
+  var showFood = function(evt) {
+    alert($("#favorite-food-input").val())
+    evt.preventDefault()
+  }
+
+  $("input#agreeable-form input[type='submit']").on("click", showFood)
+
+
 </script>
 
 <div class="hint">

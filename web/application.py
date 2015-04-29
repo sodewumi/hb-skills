@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index_page():
     return render_template("index.html")
 
+@app.route("/fill")
+def render_form():
+    return render_template("application-form.html")
+
 @app.route("/response")
 def write_response():
     last_name_py = request.args.get("last_name_form")

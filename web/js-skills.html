@@ -336,11 +336,15 @@ var cats = $("#kittenz-rule")
 
 <script>
   var showFood = function(evt) {
-    alert($("#favorite-food-input").val())
-    evt.preventDefault()
+    evt.stopPropagation()
+    evt.preventDefault();
+    alert($("#favorite-food-input").val());
+    // evt.preventDefault()
   }
 
-  $("input#agreeable-form input[type='submit']").on("click", showFood)
+  $("input#agreeable-form input[type='submit']").on("click", function () {
+    showFood()
+  })
 
 
 </script>

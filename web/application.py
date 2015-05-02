@@ -15,12 +15,10 @@ def write_response():
     last_name_py = request.args.get("last_name_form")
     first_name_py = request.args.get("first_name_form")
     salary_py = request.args.get("salary_form")
-    print last_name_py
-    print first_name_py
-    print salary_py
+    position_py = request.args.get("applying")
 
     return render_template("response.html", first_name_response =first_name_py,
-        last_name_response = last_name_py, salary_response = salary_py)
+        last_name_response = last_name_py, salary_response = salary_py,  position_response = position_py)
 
 if __name__ == "__main__":
     app.run(debug=True)
